@@ -31,13 +31,13 @@
                                 <li><a class="dropdown-item" href="{% url 'produto_lista'%}">Todos Produtos</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                             {%for departamento in departamentos%}  
-                                <li><a class="dropdown-item" href="#!">{{ departamento.nome }}</a></li>
+                                <li><a class="dropdown-item" href="{% url 'produto_lista_por_departamento' id=departamento.id %}">{{ departamento.nome }}</a></li>
                             {% endfor %} 
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Cadastro</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'cadastro' %}">Cadastro</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Contato</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Sobre a Empresa</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'sobre-a-empresa' %}">Sobre a Empresa</a></li>
                     </ul>
                 </div>
             </div>

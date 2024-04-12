@@ -22,13 +22,11 @@
                     
                     
                     <!-- Inicio Produtos -->
-                    {%include 'includes/card_produto1.html' %}
-                    <!-------->
-                    {%include 'includes/card_produto2.html' %}
-                    <!-------->
-                    {%include 'includes/card_produto1.html' %}
-                    <!-------->
-                    {%include 'includes/card_produto2.html' %}
+                {% for produto in produtos %}
+                    {%include 'includes/card_produto.html' %}
+                {% empty %}
+                    NÃO HÁ PRODUTOS EM DESTAQUE
+                {% endfor %}
                     <!-- termino produtos-->
                 </div>
             </div>

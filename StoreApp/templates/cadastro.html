@@ -1,0 +1,27 @@
+{% extends 'base.html '%}
+{% load static %}
+
+{% block Título%} Cadastro- Senac Store{% endblock Título%}
+
+{% block Conteudo%}
+    <!-- Header-->
+       <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Cadastro de cliente</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Faça seu cadastro e em breve entraremos em contato!</p>
+            </div>
+        </div>
+    </header>
+    <!-- Section-->
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            
+            <form action="{% url 'cadastro' %}" method= "post" >
+                {{ formulario_cadastro.as_p }}
+                <input type="submit" value="Enviar" class= "btn btn-dark">
+            </form>
+
+        </div>
+    </section>
+{% endblock Conteudo%}
