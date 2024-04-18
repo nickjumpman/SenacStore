@@ -27,12 +27,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-raqe+#hi!^ru6a)tf#=sjq98&7mpuwn5-6dgf@m@g@eq&tow5r'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+# Endereços aceitos para o envio de formulários
+# CSRF_TRUSTED_ORIGINS  = ['*']
+
 
 
 # Application definition
@@ -48,7 +52,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'cloudinary_storage',
-	'cloudinary'
+	'cloudinary',
+    'whitenoise.runserver_nostatic'
 ]
 
 MIDDLEWARE = [
@@ -59,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'SenacStore.urls'
@@ -82,7 +88,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'SenacStore.wsgi.application'
 
-
+# sqlite
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -93,6 +99,7 @@ WSGI_APPLICATION = 'SenacStore.wsgi.application'
 #     }
 # }
 
+# MYSQL(railway)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
